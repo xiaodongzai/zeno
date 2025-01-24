@@ -27,8 +27,12 @@ jobs:
           USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
           KEY: ${{ secrets.ALICLOUD_SSH_KEY }}
         run: |
-          echo "$USERNAME"
-          echo "$HOST"
+          if [ -z "$USERNAME" ]; then
+            echo "USERNAME is not set"
+            exit 1
+          else
+            echo "USERNAME is set"
+          fi
           echo "$KEY" > alicloud_key
           chmod 600 alicloud_key
           rsync -avz -e "ssh -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
