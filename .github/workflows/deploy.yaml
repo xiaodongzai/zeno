@@ -38,5 +38,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
             npm install --production
-            pm2 restart all
+            npm run start
           EOF
