@@ -37,7 +37,7 @@ jobs:
           rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
-            npm install --production
+            npm install
             npm run build
             npm run start
           EOF
