@@ -33,7 +33,8 @@ jobs:
           echo "$KEY" > alicloud_key
           chmod 600 alicloud_key
           sudo apt-get install rsync
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
+          rsync --version
+          rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
             npm install --production
