@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,28 +18,54 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install rsync and ssh
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y rsync openssh-client
-
       - name: Deploy to Alibaba Cloud
         env:
           HOST: ${{ secrets.ALICLOUD_HOST }}
           USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
           KEY: ${{ secrets.ALICLOUD_SSH_KEY }}
         run: |
-          if [ -z "$USERNAME" ]; then
-            echo "USERNAME is not set"
+          # Step 1: Check if necessary environment variables are set
+          if [ -z "$USERNAME" ] || [ -z "$HOST" ] || [ -z "$KEY" ]; then
+            echo "One or more environment variables are missing: USERNAME, HOST, or KEY"
             exit 1
-          else
-            echo "USERNAME is set"
           fi
-          echo "$KEY" > alicloud_key
-          chmod 600 alicloud_key
-          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
-          ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
-            cd zeno
+
+          # Step 2: Save the SSH key and set permissions
+          echo "Saving SSH key..."
+          echo "$KEY" > /tmp/alicloud_key
+          chmod 600 /tmp/alicloud_key
+
+          # Step 3: Compress the codebase (optional for faster transfer)
+          echo "Compressing files..."
+          tar -czf app.tar.gz --exclude='node_modules' --exclude='.git' .
+
+          # Step 4: Transfer the compressed file to the server
+          echo "Transferring files to server..."
+          scp -o StrictHostKeyChecking=no -i /tmp/alicloud_key app.tar.gz $USERNAME@$HOST:/tmp || exit 1
+
+          # Step 5: Connect to the server and deploy
+          echo "Deploying application on server..."
+          ssh -o StrictHostKeyChecking=no -i /tmp/alicloud_key $USERNAME@$HOST << 'EOF'
+            set -e
+            echo "Entering /tmp directory..."
+            cd /tmp
+            
+            echo "Extracting application..."
+            tar -xzf app.tar.gz -C ~/zeno || mkdir -p ~/zeno && tar -xzf app.tar.gz -C ~/zeno
+            
+            echo "Entering project directory..."
+            cd ~/zeno
+            
+            echo "Installing dependencies..."
             npm install --production
-            pm2 restart all
+            
+            echo "Restarting application with PM2..."
+            npm run start
+            
+            echo "Cleaning up temporary files..."
+            rm -f /tmp/app.tar.gz
           EOF
+
+          # Step 6: Clean up local temporary files
+          echo "Cleaning up local temporary files..."
+          rm -f /tmp/alicloud_key app.tar.gz
