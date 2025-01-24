@@ -1,0 +1,37 @@
+name: Node.js CI/CD
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Deploy to Alibaba Cloud
+        env:
+          HOST: ${{ secrets.ALICLOUD_HOST }}
+          USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
+          KEY: ${{ secrets.ALICLOUD_SSH_KEY }}
+        run: |
+          echo "$KEY" > alicloud_key
+          chmod 600 alicloud_key
+          rsync -avz -e "ssh -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
+          ssh -i alicloud_key $USERNAME@$HOST << 'EOF'
+            cd zeno
+            npm install --production
+            pm2 restart all
+          EOF
