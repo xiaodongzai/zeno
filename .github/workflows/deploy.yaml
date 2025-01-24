@@ -35,8 +35,8 @@ jobs:
           fi
           echo "$KEY" > alicloud_key
           chmod 600 alicloud_key
-          rsync -avz -e "ssh -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
-          ssh -i alicloud_key $USERNAME@$HOST << 'EOF'
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
+          ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
             npm install --production
             pm2 restart all
