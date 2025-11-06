@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/components/Layout/Header.tsx"],"sourcesContent":["import React from 'react';\n\nexport default function Header() {\n  return <div>Header</div>;\n}\n"],"names":[],"mappings":";;;;;AAEe,SAAS;IACtB,qBAAO,6WAAC;kBAAI;;;;;;AACd"}},
+    {"offset": {"line": 21, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 27, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/components/Layout/Nav.tsx"],"sourcesContent":["export default function Nav() {\n  return <div>Nav</div>;\n}\n"],"names":[],"mappings":";;;;;AAAe,SAAS;IACtB,qBAAO,6WAAC;kBAAI;;;;;;AACd"}},
+    {"offset": {"line": 41, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 47, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/components/Layout/index.tsx"],"sourcesContent":["import { Layout } from 'antd';\nimport Header from './Header';\nimport Nav from './Nav';\n\nconst CustomLayout = ({ children }: { children: React.ReactNode }) => {\n  return (\n    <Layout className=\"flex flex-col h-screen\">\n      <Layout.Header>\n        <Header />\n      </Layout.Header>\n      <Layout.Content>\n        <Layout.Sider>\n          <Nav />\n        </Layout.Sider>\n        <Layout.Content>{children}</Layout.Content>\n      </Layout.Content>\n    </Layout>\n  );\n};\n\nexport default CustomLayout;\n"],"names":[],"mappings":";;;;AACA;AACA;AAFA;;;;;AAIA,MAAM,eAAe,CAAC,EAAE,QAAQ,EAAiC;IAC/D,qBACE,6WAAC,kQAAA,CAAA,SAAM;QAAC,WAAU;;0BAChB,6WAAC,kQAAA,CAAA,SAAM,CAAC,MAAM;0BACZ,cAAA,6WAAC,sIAAA,CAAA,UAAM;;;;;;;;;;0BAET,6WAAC,kQAAA,CAAA,SAAM,CAAC,OAAO;;kCACb,6WAAC,kQAAA,CAAA,SAAM,CAAC,KAAK;kCACX,cAAA,6WAAC,mIAAA,CAAA,UAAG;;;;;;;;;;kCAEN,6WAAC,kQAAA,CAAA,SAAM,CAAC,OAAO;kCAAE;;;;;;;;;;;;;;;;;;AAIzB;uCAEe"}},
+    {"offset": {"line": 107, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 113, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/layout.tsx"],"sourcesContent":["import CustomLayout from '@/components/Layout';\n\nexport default function MainLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return <CustomLayout>{children}</CustomLayout>;\n}\n"],"names":[],"mappings":";;;;AAAA;;;AAEe,SAAS,WAAW,EACjC,QAAQ,EAGT;IACC,qBAAO,6WAAC,qIAAA,CAAA,UAAY;kBAAE;;;;;;AACxB"}},
+    {"offset": {"line": 129, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

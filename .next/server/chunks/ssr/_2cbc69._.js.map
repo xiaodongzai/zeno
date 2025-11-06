@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/pool/%5Bid%5D/page.tsx"],"sourcesContent":["// 查看 ETF 详情\n\nimport { useParams } from 'next/navigation';\n\nconst ETFDetailPage = () => {\n  const { id } = useParams();\n  return (\n    <div>\n      <h1>ETF Detail</h1>\n      <p>ID: {id}</p>\n    </div>\n  );\n};\n\nexport default ETFDetailPage;\n"],"names":[],"mappings":"AAAA,YAAY;;;;;AAEZ;AAAA;;;AAEA,MAAM,gBAAgB;IACpB,MAAM,EAAE,EAAE,EAAE,GAAG,CAAA,GAAA,oTAAA,CAAA,YAAS,AAAD;IACvB,qBACE,6WAAC;;0BACC,6WAAC;0BAAG;;;;;;0BACJ,6WAAC;;oBAAE;oBAAK;;;;;;;;;;;;;AAGd;uCAEe"}},
+    {"offset": {"line": 45, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
+    {"offset": {"line": 56, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}},
+    {"offset": {"line": 56, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

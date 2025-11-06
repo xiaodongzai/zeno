@@ -1,0 +1,50 @@
+/* [project]/src/app/login/styles.module.css [app-client] (css) */
+.styles-module__MksebG__pageWrapper {
+  background-color: #f9fafb;
+  background-image: radial-gradient(circle at 10% 20%, #3b82f60d 0%, #0000 20%), radial-gradient(circle at 90% 80%, #10b9810d 0%, #0000 20%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.styles-module__MksebG__loginCard {
+  box-shadow: 0 10px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+  transition: all .3s;
+}
+
+.styles-module__MksebG__loginCard:hover {
+  box-shadow: 0 20px 25px -5px #0000001a, 0 10px 10px -5px #0000000a;
+}
+
+.styles-module__MksebG__inputFocus:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px #3b82f61a;
+  outline: none;
+}
+
+.styles-module__MksebG__btnPrimary {
+  background-color: #3b82f6;
+  color: #fff;
+  transition: all .2s;
+}
+
+.styles-module__MksebG__btnPrimary:hover {
+  background-color: #2563eb;
+}
+
+.styles-module__MksebG__btnPrimary:active {
+  background-color: #1d4ed8;
+}
+
+.styles-module__MksebG__socialBtn {
+  transition: all .2s;
+}
+
+.styles-module__MksebG__socialBtn:hover {
+  transform: translateY(-2px);
+}
+
+/*# sourceMappingURL=src_app_login_styles_module_b52d8e.css.map*/

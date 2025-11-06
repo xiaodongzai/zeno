@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/layout.tsx"],"sourcesContent":["// import dynamic from 'next/dynamic';\nimport { Layout } from 'antd';\n// import * as LayoutComponents from '@/components/Layout';\n\nconst { Header, Content, Sider } = Layout;\n\nexport default function MainLayout({\n  children,\n}: {\n  children: React.ReactNode;\n}) {\n  return (\n    <Layout className=\"flex flex-col h-screen\">\n      <Layout.Header></Layout.Header>\n    </Layout>\n  );\n}\n"],"names":[],"mappings":"AAAA,sCAAsC;;;;;AACtC;;;AACA,2DAA2D;AAE3D,MAAM,EAAE,MAAM,EAAE,OAAO,EAAE,KAAK,EAAE,GAAG,kQAAA,CAAA,SAAM;AAE1B,SAAS,WAAW,EACjC,QAAQ,EAGT;IACC,qBACE,6WAAC,kQAAA,CAAA,SAAM;QAAC,WAAU;kBAChB,cAAA,6WAAC,kQAAA,CAAA,SAAM,CAAC,MAAM;;;;;;;;;;AAGpB"}},
+    {"offset": {"line": 31, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

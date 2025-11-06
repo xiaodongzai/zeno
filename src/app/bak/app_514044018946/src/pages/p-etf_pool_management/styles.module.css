@@ -1,0 +1,133 @@
+
+
+.pageWrapper {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+}
+
+.sidebarTransition {
+  transition: width 0.3s ease-in-out;
+}
+
+.cardHover:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+  transition: all 0.2s ease-in-out;
+}
+
+.navItemActive {
+  background-color: #EBF8FF;
+  color: #3B82F6;
+  border-right: 3px solid #3B82F6;
+}
+
+.navItem:hover {
+  background-color: #F3F4F6;
+  color: #3B82F6;
+}
+
+.tableRow:hover {
+  background-color: #F9FAFB;
+}
+
+.btnPrimary {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btnPrimary:hover {
+  background-color: #2563EB;
+}
+
+.btnSecondary {
+  background-color: white;
+  color: #3B82F6;
+  border: 1px solid #3B82F6;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnSecondary:hover {
+  background-color: #EBF8FF;
+}
+
+.btnDanger {
+  background-color: white;
+  color: #EF4444;
+  border: 1px solid #EF4444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btnDanger:hover {
+  background-color: #FEF2F2;
+}
+
+.searchInput {
+  padding: 8px 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 200px;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.selectFilter {
+  padding: 8px 12px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.selectFilter:focus {
+  outline: none;
+  border-color: #3B82F6;
+}
+
+.etfCategoryStock {
+  background-color: #3B82F6;
+  color: white;
+}
+
+.etfCategoryBond {
+  background-color: #10B981;
+  color: white;
+}
+
+.etfCategoryCommodity {
+  background-color: #F59E0B;
+  color: white;
+}
+
+.etfCategoryMixed {
+  background-color: #8B5CF6;
+  color: white;
+}
+
+.signalUp {
+  color: #10B981;
+}
+
+.signalDown {
+  color: #EF4444;
+}
+

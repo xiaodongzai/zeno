@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/pool/%5Bid%5D/page.tsx"],"sourcesContent":["'use client';\n\nconst PoolDetailPage = () => {\n  return <div>PoolDetailPage</div>;\n};\n\nexport default PoolDetailPage;\n"],"names":[],"mappings":";;;;AAAA;;AAEA,MAAM,iBAAiB;IACrB,qBAAO,4TAAC;kBAAI;;;;;;AACd;KAFM;uCAIS"}},
+    {"offset": {"line": 29, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
+}

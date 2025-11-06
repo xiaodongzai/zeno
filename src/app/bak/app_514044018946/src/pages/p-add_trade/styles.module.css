@@ -1,0 +1,47 @@
+
+
+.pageWrapper {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+}
+
+.modalBackdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.formInputFocus:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.emotionOption {
+  transition: all 0.2s ease-in-out;
+}
+
+.emotionOption:hover {
+  background-color: #F3F4F6;
+}
+
+.emotionOptionSelected {
+  background-color: #EBF8FF;
+  border-color: #3B82F6;
+  color: #3B82F6;
+}
+
+.errorMessage {
+  display: none;
+}
+
+.errorMessageShow {
+  display: block;
+}
+
+.formGroupError input,
+.formGroupError select,
+.formGroupError textarea {
+  border-color: #EF4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+

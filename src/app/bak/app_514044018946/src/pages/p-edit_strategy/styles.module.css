@@ -1,0 +1,43 @@
+
+
+.pageWrapper {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+}
+
+.modalBackdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.formInputFocus:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.radioOption:checked + .radioLabel {
+  background-color: #EBF8FF;
+  border-color: #3B82F6;
+  color: #3B82F6;
+}
+
+.signalConfigItem {
+  transition: all 0.3s ease;
+}
+
+.signalConfigItem:hover {
+  background-color: #F9FAFB;
+}
+
+.errorMessage {
+  color: #EF4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.successMessage {
+  color: #10B981;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+}
+

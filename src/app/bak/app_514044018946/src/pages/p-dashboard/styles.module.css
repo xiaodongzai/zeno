@@ -1,0 +1,40 @@
+
+
+.pageWrapper {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+}
+
+.sidebarTransition {
+  transition: width 0.3s ease-in-out;
+}
+
+.cardHover:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+  transition: all 0.2s ease-in-out;
+}
+
+.navItemActive {
+  background-color: #EBF8FF;
+  color: #3B82F6;
+  border-right: 3px solid #3B82F6;
+}
+
+.navItem:hover {
+  background-color: #F3F4F6;
+  color: #3B82F6;
+}
+
+.signalUp {
+  color: #10B981;
+}
+
+.signalDown {
+  color: #EF4444;
+}
+
+.signalNeutral {
+  color: #F59E0B;
+}
+

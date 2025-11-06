@@ -1,0 +1,58 @@
+// Prisma Schema 文件
+// 这是你的数据库结构定义文件
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 用户模型 - 完整的用户表结构
+model User {
+  id          Int       @id @default(autoincrement())
+  username    String    @unique  // 用户名，唯一
+  email       String    @unique  // 邮箱，唯一
+  password    String              // 密码哈希（存储加密后的密码）
+  name        String?             // 真实姓名（可选）
+  avatar      String?             // 头像URL（可选）
+  phone       String?   @unique  // 手机号（可选，唯一）
+  status      String    @default("active")  // 状态: active(活跃), inactive(未激活), banned(封禁)
+  role        String    @default("user")    // 角色: user(普通用户), admin(管理员)
+  lastLoginAt DateTime?           // 最后登录时间（可选）
+  createdAt   DateTime  @default(now())     // 创建时间
+  updatedAt   DateTime  @updatedAt          // 更新时间
+
+  // 索引：用于快速查询
+  @@index([email])
+  @@index([username])
+  @@index([status])
+}
+
+// 示例模型 - 文章模型
+model Etf {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  name      String?
+  category  String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// 示例模型 - 文章模型
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // 外键关系示例
+  // authorId  Int
+  // author    User   @relation(fields: [authorId], references: [id])
+}
+

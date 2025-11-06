@@ -1,0 +1,10 @@
+{
+  "app": {
+    "[project]/src/app/page": [],
+    "[project]/src/app/(main)/pool/page": [],
+    "[project]/src/app/(main)/dashboard/page": []
+  },
+  "appUsingSizeAdjust": true,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

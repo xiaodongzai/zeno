@@ -1,0 +1,121 @@
+
+
+.pageWrapper {
+  background-color: #F9FAFB;
+  min-height: 100vh;
+}
+
+.sidebarTransition {
+  transition: width 0.3s ease-in-out;
+}
+
+.navItemActive {
+  background-color: #EBF8FF;
+  color: #3B82F6;
+  border-right: 3px solid #3B82F6;
+}
+
+.navItem:hover {
+  background-color: #F3F4F6;
+  color: #3B82F6;
+}
+
+.tableRow:hover {
+  background-color: #F9FAFB;
+}
+
+.btnPrimary {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: #2563EB;
+}
+
+.btnSecondary {
+  background-color: white;
+  color: #3B82F6;
+  border: 1px solid #3B82F6;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnSecondary:hover {
+  background-color: #EBF8FF;
+}
+
+.btnDanger {
+  background-color: #EF4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnDanger:hover {
+  background-color: #DC2626;
+}
+
+.btnSm {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.formInput {
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.filterDropdown {
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 8px 12px;
+  width: 100%;
+  background-color: white;
+}
+
+.statusReviewed {
+  background-color: #D1FAE5;
+  color: #065F46;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.statusPending {
+  background-color: #FEF3C7;
+  color: #92400E;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.actionBuy {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.actionSell {
+  background-color: #FEE2E2;
+  color: #991B1B;
+}
+
