@@ -24,24 +24,28 @@ jobs:
           USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
           KEY: ${{ secrets.ALICLOUD_SSH_KEY }}
         run: |
-          if [ -z "$USERNAME" ]; then
-            echo "USERNAME is not set"
-            exit 1
-          else
-            echo "USERNAME is set"
-          fi
           echo "$KEY" > alicloud_key
           chmod 600 alicloud_key
-          sudo apt-get install rsync
-          rsync --version
-          rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
+          sudo apt-get install -y rsync
+
+          echo "开始同步文件（排除 prisma/data.db）..."
+
+          rsync -avz \
+            -e "ssh -o StrictHostKeyChecking=no -i alicloud_key" \
+            --exclude 'node_modules' \
+            --exclude '.next' \
+            --exclude '.git' \
+            --exclude 'prisma/data.db' \
+            --delete \
+            ./ $USERNAME@$HOST:zeno/
+
+          echo "部署中..."
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
-            echo "DATABASE_URL=file:./data.db" >> .env
-            rm -rf ./src/app/bak
-            npm install
+            echo "DATABASE_URL=file:./data.db" > .env
+            npm install --production
             npx prisma generate
             npx prisma migrate deploy
             npm run build
-            pm2 restart "zeno"
+            pm2 restart "zeno" || pm2 start npm --name "zeno" -- run start
           EOF
