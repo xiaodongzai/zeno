@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Deploy to Alibaba Cloud
         env:
@@ -38,6 +38,8 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
             npm install
+            npm run db:generate
+            npm run db:push
             npm run build
             pm2 restart "zeno"
           EOF
