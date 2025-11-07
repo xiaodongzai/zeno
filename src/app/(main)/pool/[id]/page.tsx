@@ -7,7 +7,7 @@ const PoolDetailPage = () => {
   const { id } = useParams();
   return (
     <div>
-      <FundChart id={id} />
+      <FundChart id={id as string} />
     </div>
   );
 };

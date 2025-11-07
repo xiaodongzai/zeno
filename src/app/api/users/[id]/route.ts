@@ -1,19 +1,22 @@
-import { NextResponse } from 'next/server'
-import { prisma } from '../../../../lib/prisma'
+import { NextResponse } from 'next/server';
+import { prisma } from '../../../../lib/prisma';
+
+// Helper to extract id from the pathname. Compatible with edge API expectations.
+function getIdFromUrl(request: Request): number | null {
+  const url = new URL(request.url);
+  const paths = url.pathname.split('/');
+  const idStr = paths[paths.length - 1] || paths[paths.length - 2];
+  const id = parseInt(idStr, 10);
+  if (Number.isNaN(id)) return null;
+  return id;
+}
 
 // GET /api/users/[id] - 获取单个用户
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: Request) {
   try {
-    const id = parseInt(params.id)
-    
-    if (isNaN(id)) {
-      return NextResponse.json(
-        { error: 'Invalid user ID' },
-        { status: 400 }
-      )
+    const id = getIdFromUrl(request);
+    if (!id) {
+      return NextResponse.json({ error: 'Invalid user ID' }, { status: 400 });
     }
 
     const user = await prisma.user.findUnique({
@@ -32,53 +35,40 @@ export async function GET(
         updatedAt: true,
         // 不返回 password 字段
       },
-    })
+    });
 
     if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
-    return NextResponse.json(user)
+    return NextResponse.json(user);
   } catch (error) {
-    console.error('Error fetching user:', error)
+    console.error('Error fetching user:', error);
     return NextResponse.json(
       { error: 'Failed to fetch user' },
       { status: 500 }
-    )
+    );
   }
 }
 
 // PUT /api/users/[id] - 更新用户信息
-export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: Request) {
   try {
-    const id = parseInt(params.id)
-    
-    if (isNaN(id)) {
-      return NextResponse.json(
-        { error: 'Invalid user ID' },
-        { status: 400 }
-      )
+    const id = getIdFromUrl(request);
+    if (!id) {
+      return NextResponse.json({ error: 'Invalid user ID' }, { status: 400 });
     }
 
-    const body = await request.json()
-    const { name, avatar, phone, status, role } = body
+    const body = await request.json();
+    const { name, avatar, phone, status, role } = body;
 
     // 检查用户是否存在
     const existingUser = await prisma.user.findUnique({
       where: { id },
-    })
+    });
 
     if (!existingUser) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     const user = await prisma.user.update({
@@ -103,67 +93,56 @@ export async function PUT(
         createdAt: true,
         updatedAt: true,
       },
-    })
+    });
 
-    return NextResponse.json(user)
+    return NextResponse.json(user);
   } catch (error: any) {
-    console.error('Error updating user:', error)
-    
+    console.error('Error updating user:', error);
+
     if (error.code === 'P2002') {
-      const field = error.meta?.target?.[0] || 'field'
+      const field = error.meta?.target?.[0] || 'field';
       return NextResponse.json(
         { error: `${field} already exists` },
         { status: 409 }
-      )
+      );
     }
 
     return NextResponse.json(
       { error: 'Failed to update user' },
       { status: 500 }
-    )
+    );
   }
 }
 
 // DELETE /api/users/[id] - 删除用户
-export async function DELETE(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: Request) {
   try {
-    const id = parseInt(params.id)
-    
-    if (isNaN(id)) {
-      return NextResponse.json(
-        { error: 'Invalid user ID' },
-        { status: 400 }
-      )
+    const id = getIdFromUrl(request);
+    if (!id) {
+      return NextResponse.json({ error: 'Invalid user ID' }, { status: 400 });
     }
 
     const user = await prisma.user.findUnique({
       where: { id },
-    })
+    });
 
     if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'User not found' }, { status: 404 });
     }
 
     await prisma.user.delete({
       where: { id },
-    })
+    });
 
     return NextResponse.json(
       { message: 'User deleted successfully' },
       { status: 200 }
-    )
+    );
   } catch (error) {
-    console.error('Error deleting user:', error)
+    console.error('Error deleting user:', error);
     return NextResponse.json(
       { error: 'Failed to delete user' },
       { status: 500 }
-    )
+    );
   }
 }
-
