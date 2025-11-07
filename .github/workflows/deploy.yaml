@@ -23,7 +23,6 @@ jobs:
           HOST: ${{ secrets.ALICLOUD_HOST }}
           USERNAME: ${{ secrets.ALICLOUD_USERNAME }}
           KEY: ${{ secrets.ALICLOUD_SSH_KEY }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
         run: |
           if [ -z "$USERNAME" ]; then
             echo "USERNAME is not set"
@@ -38,7 +37,7 @@ jobs:
           rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
             cd zeno
-            echo "DATABASE_URL=${DATABASE_URL}" >> .env
+            echo "DATABASE_URL=file:./data.db" >> .env
             npm install
             npx prisma generate
             npx prisma migrate deploy
