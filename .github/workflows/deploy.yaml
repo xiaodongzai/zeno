@@ -41,6 +41,7 @@ jobs:
 
           echo "部署中..."
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
+            pwd
             cd zeno
             echo "DATABASE_URL=file:./data.db" > .env
             npm install
