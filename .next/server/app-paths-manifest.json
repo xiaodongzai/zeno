@@ -1,6 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/(main)/pool/page": "app/(main)/pool/page.js",
-  "/api/pool/route": "app/api/pool/route.js",
-  "/(main)/dashboard/page": "app/(main)/dashboard/page.js"
-}

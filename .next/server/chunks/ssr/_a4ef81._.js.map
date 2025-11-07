@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/pool/page.tsx"],"sourcesContent":["const PoolPage = () => {\n  return <div>PoolPage</div>;\n};\n\nexport default PoolPage;\n"],"names":[],"mappings":";;;;;AAAA,MAAM,WAAW;IACf,qBAAO,6WAAC;kBAAI;;;;;;AACd;uCAEe"}},
-    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":""}},
-    {"offset": {"line": 33, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

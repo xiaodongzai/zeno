@@ -1,9 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/components/FundChart/index.tsx"],"sourcesContent":["const FundChart = () => {\n  return <div>FundChart</div>;\n};\n\nexport default FundChart;\n"],"names":[],"mappings":";;;;;AAAA,MAAM,YAAY;IAChB,qBAAO,6WAAC;kBAAI;;;;;;AACd;uCAEe"}},
-    {"offset": {"line": 22, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}},
-    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/app/%28main%29/pool/%5Bid%5D/page.tsx"],"sourcesContent":["'use client';\n\nimport FundChart from '@/components/FundChart';\nconst PoolDetailPage = () => {\n  return (\n    <div>\n      <FundChart />\n    </div>\n  );\n};\n\nexport default PoolDetailPage;\n"],"names":[],"mappings":";;;;AAEA;AAFA;;;AAGA,MAAM,iBAAiB;IACrB,qBACE,6WAAC;kBACC,cAAA,6WAAC,wIAAA,CAAA,UAAS;;;;;;;;;;AAGhB;uCAEe"}},
-    {"offset": {"line": 50, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/xiezhendong1/Documents/code/github/zeno/src/components/QueryProvider/index.tsx"],"sourcesContent":["'use client';\n\nimport { QueryClient, QueryClientProvider } from '@tanstack/react-query';\nimport { ReactNode, useState } from 'react';\n\nexport default function QueryProvider({ children }: { children: ReactNode }) {\n  const [queryClient] = useState(\n    () =>\n      new QueryClient({\n        defaultOptions: {\n          queries: {\n            // 当窗口重新获得焦点时，不自动重新获取数据\n            refetchOnWindowFocus: false,\n            // 当重新连接时，不自动重新获取数据\n            refetchOnReconnect: false,\n            // 数据缓存时间（毫秒），默认为 5 分钟\n            staleTime: 5 * 60 * 1000,\n            // 数据在缓存中保留的时间（毫秒），默认为无限\n            gcTime: 10 * 60 * 1000,\n          },\n        },\n      })\n  );\n\n  return (\n    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>\n  );\n}\n"],"names":[],"mappings":";;;;AAGA;AADA;AAAA;;;AAFA;;;AAKe,SAAS,cAAc,EAAE,QAAQ,EAA2B;;IACzE,MAAM,CAAC,YAAY,GAAG,CAAA,GAAA,4RAAA,CAAA,WAAQ,AAAD;kCAC3B,IACE,IAAI,yPAAA,CAAA,cAAW,CAAC;gBACd,gBAAgB;oBACd,SAAS;wBACP,uBAAuB;wBACvB,sBAAsB;wBACtB,mBAAmB;wBACnB,oBAAoB;wBACpB,sBAAsB;wBACtB,WAAW,IAAI,KAAK;wBACpB,wBAAwB;wBACxB,QAAQ,KAAK,KAAK;oBACpB;gBACF;YACF;;IAGJ,qBACE,4TAAC,yRAAA,CAAA,sBAAmB;QAAC,QAAQ;kBAAc;;;;;;AAE/C;GAtBwB;KAAA"}},
-    {"offset": {"line": 53, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"A"}}]
-}

@@ -37,6 +37,10 @@ jobs:
           rsync --version
           rsync -avz -e "ssh -vvv -o StrictHostKeyChecking=no -i alicloud_key" --exclude 'node_modules' ./ $USERNAME@$HOST:zeno
           ssh -o StrictHostKeyChecking=no -i alicloud_key $USERNAME@$HOST << 'EOF'
+          cat > .env << EOF
+          NODE_ENV=production
+          DATABASE_URL="${DATABASE_URL}"
+          EOF
             cd zeno
             npm install
             npx prisma generate
